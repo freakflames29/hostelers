@@ -1,0 +1,26 @@
+<!--<h1>Name:<%#= @user.name %></h1>-->
+<!--<p>Username:<%#= @user.username %></p>-->
+<!--<h3>Email:<%#= @user.email %></h3>-->
+<!--<h3>Phone:<%#= @user.phone %></h3>-->
+
+<%# if @user.owner.eql?(1) %>
+<!--<h5>It is a owner profile 👑</h5> .-->
+  <%# else %>
+<!--<h5>It is a normal profile 👦🏻</h5> .-->
+
+<%# end %>
+
+<%#= link_to "Edit",edit_user_path%>
+
+
+
+<div class="card d-flex justify-content-center" style="width: 30rem;">
+  <div class="card-body">
+    <h5 class="card-title"><%= @user.name %></h5>
+    <h6 class="card-subtitle mb-2 text-body-secondary">@<%= @user.username %> | ✉️ <%= @user.email %> | 📞 <%= @user.phone %></h6>
+
+    <p class="card-text"><%= @user.desc %></p>
+
+    <%= link_to "Edit",edit_user_path,class: "card-link"  %>
+  </div>
+</div>
