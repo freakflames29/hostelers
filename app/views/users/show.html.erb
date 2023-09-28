@@ -1,26 +1,29 @@
-<!--<h1>Name:<%#= @user.name %></h1>-->
-<!--<p>Username:<%#= @user.username %></p>-->
-<!--<h3>Email:<%#= @user.email %></h3>-->
-<!--<h3>Phone:<%#= @user.phone %></h3>-->
+<h1 class="h1 text-center">User information 👇</h1>
+<hr>
+<div class="d-flex justify-content-center mb-5 mt-5">
+  <div class="card " style="width: 30rem;">
+    <div class="card-body">
+      <% if @user.owner.eql?(1) %>
+        <small>👑 Uploader profile</small>
+      <% end %>
+      <h1 class="card-title">👤 <%= @user.name.capitalize %></h1>
+      <h6 class="card-subtitle mb-2 text-body-secondary">@<%= @user.username %> | ✉️ <%= @user.email %> |
+        📞 <%= @user.phone %></h6>
 
-<%# if @user.owner.eql?(1) %>
-<!--<h5>It is a owner profile 👑</h5> .-->
-  <%# else %>
-<!--<h5>It is a normal profile 👦🏻</h5> .-->
+      <p class="card-text"><%= @user.desc %></p>
 
-<%# end %>
+      <% if @user.eql?(current_user) %>
 
-<%#= link_to "Edit",edit_user_path%>
-
-
-
-<div class="card d-flex justify-content-center" style="width: 30rem;">
-  <div class="card-body">
-    <h5 class="card-title"><%= @user.name %></h5>
-    <h6 class="card-subtitle mb-2 text-body-secondary">@<%= @user.username %> | ✉️ <%= @user.email %> | 📞 <%= @user.phone %></h6>
-
-    <p class="card-text"><%= @user.desc %></p>
-
-    <%= link_to "Edit",edit_user_path,class: "card-link"  %>
+        <%= link_to "✍️ Edit info", edit_user_path, class: "btn btn-outline-warning" %>
+      <% end %>
+    </div>
   </div>
 </div>
+<% if @user.hostels.size > 0 %>
+  <h1 class="h1 text-center mb-3">Hostels by @<%= @user.username %></h1>
+
+  <%= render "hostels/hostel", para: @hostels %>
+<% else %>
+  <!--  <h1>There is no hostels</h1>-->
+
+<% end %>

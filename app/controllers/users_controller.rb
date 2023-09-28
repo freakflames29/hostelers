@@ -1,11 +1,13 @@
 class UsersController < ApplicationController
   before_action :checkpoints,only: [:new,:create,:update]
+  before_action :require_user ,only: [:show]
   def new
     @user=User.new
   end
 
   def show
     @user=User.find params[:id]
+    @hostels=@user.hostels
 
   end
 
@@ -13,8 +15,8 @@ class UsersController < ApplicationController
     @user=User.new filter_params
     puts "#{@user.inspect}-********************************************-"
     if @user.save
-      flash[:ok]="User created successfully"
-      redirect_to @user
+      flash[:ok]="User created successfully,login to continue"
+      redirect_to login_path
     else
       render :new,status: :unprocessable_entity
     end

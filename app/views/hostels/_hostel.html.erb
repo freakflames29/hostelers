@@ -1,0 +1,22 @@
+<div class="row row-cols-1 row-cols-md-3 g-4">
+  <% para.each do |hostel| %>
+    <div class="col">
+      <div class="card">
+
+        <%= image_tag "#{hostel.img}", alt: "mess image", class: "card-img-top custom_imgs" %>
+        <div class="card-body">
+          <h5 class="card-title"><%= hostel.title.capitalize %></h5>
+
+          <small class="text-body-secondary">by @<%= link_to hostel.user.username, user_path(hostel.user) %></small>
+
+          <p class="card-text"><%= hostel.desc %></p>
+
+          <%= link_to "View", hostel_path(hostel), class: "btn btn-primary" %>
+
+        </div>
+      </div>
+    </div>
+  <% end %>
+
+
+</div>
