@@ -4,4 +4,12 @@
     width: 100%;
     height: 50%;
 
+
+}
+.hero{
+    background-image: url("https://blogger.googleusercontent.com/img/b/R29vZ2xl/AVvXsEhJ0SjVEuGML8Nr0p3ZEauf_mAo9eNYYlBR3SY9DNy4FVsGW87QmBK0eXnR2H7-Z0eGjGr7GXzGa_MlOMGOH3eKtN-jwFo5luqaGJXYO1wsu8mwXDEfKVY1Hz0Ok-hzu0oeSLERs0R2Loh8hEaVVgqX1zFhJ5EugYpkIykYEjeqBtrfIaRJavpcQCa4DXA/s16000/Default_a_magical_colorfull_apartment_outside_view_0_42eb1747-1caa-422d-8d59-10d45a4bb787_1.jpg");
+    width: 100%;
+    height: 80vh;
+    background-size: cover;
+    border-radius: 15px;
 }
