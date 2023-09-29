@@ -15,17 +15,18 @@
 <!--          <a class="nav-link active" aria-current="page" href="#">Home</a>-->
           <%= link_to "Hostels",hostels_path,class: "nav-link" %>
         </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#">Link</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link" href="#">Link</a>-->
+<!--        </li>-->
 
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
+<!--        <li class="nav-item">-->
+<!--          <a class="nav-link disabled" aria-disabled="true">Disabled</a>-->
+<!--        </li>-->
       </ul>
       <% if logged_in? %>
         <%= link_to "Logout",logout_path,data:{turbo_method: :delete,turbo_confirm:"Are you sure ?"}, class: "btn btn-danger mx-2" %>
         <%= link_to "My Profile",user_path(current_user.id), class: "btn btn-primary mx-2" %>
+        <%= link_to "+ Upload",upload_path, class: "btn btn-success mx-2" %>
       <% else %>
         <%= link_to "Signup", signup_path, class: "btn btn-success mx-2" %>
         <%= link_to "Login", login_path, class: "btn btn-primary mx-2" %>
